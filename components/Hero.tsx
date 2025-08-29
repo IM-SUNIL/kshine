@@ -75,13 +75,13 @@ function Hero() {
                     animate={
                       titleNumber === index
                         ? {
-                            y: 0,
-                            opacity: 1,
-                          }
+                          y: 0,
+                          opacity: 1,
+                        }
                         : {
-                            y: titleNumber > index ? -150 : 150,
-                            opacity: 0,
-                          }
+                          y: titleNumber > index ? -150 : 150,
+                          opacity: 0,
+                        }
                     }
                   >
                     {title}
@@ -97,7 +97,7 @@ function Hero() {
               ever.
             </p>
           </div>
-          <div className="flex flex-row justify-center gap-3">
+          <div className="flex sm:flex-row justify-center gap-3">
             <Button size="lg" className="gap-4" variant="outline">
               Whatsapp Us <PhoneCall className="w-4 h-4" />
             </Button>

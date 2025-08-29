@@ -121,7 +121,7 @@ const Navbar = () => {
                   className="inline-flex items-center justify-center w-full px-5 py-3 text-base text-white bg-black rounded-full hover:bg-gray-800 transition-colors "
                   onClick={toggleMenu}
                 >
-                  Get Started
+                  Check Products
                 </a>
               </motion.div>
             </div>
