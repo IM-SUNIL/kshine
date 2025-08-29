@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { MoveRight, PhoneCall } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TestimonialsSection } from "./Testimonials";
+import Link from "next/link"
 
 function Hero() {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -56,11 +57,13 @@ function Hero() {
     <div className="w-full">
       <div className="flex flex-col">
         <div className="container mx-auto">
-          <div className="flex gap-8 py-20 lg:py-10 items-center justify-center flex-col">
+          <div className="flex gap-8 py-20 lg:py-10 px-3 items-center justify-center flex-col">
             <div>
-              <Button variant="secondary" size="sm" className="gap-4">
-                Read our more blogs <MoveRight className="w-4 h-4" />
-              </Button>
+              <Link href="/blog">
+                <Button variant="secondary" size="sm" className="cursor-pointer gap-4">
+                  Read our more blogs <MoveRight className="w-4 h-4" />
+                </Button>
+              </Link>
             </div>
             <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-center font-regular">
               <span className="text-spektr-cyan-50">K-Shine Jewellers</span>
@@ -97,14 +100,20 @@ function Hero() {
               ever.
             </p>
           </div>
-          <div className="flex sm:flex-row justify-center gap-3">
-            <Button size="lg" className="gap-4" variant="outline">
-              Whatsapp Us <PhoneCall className="w-4 h-4" />
-            </Button>
-            <Button size="lg" className="gap-4">
-              Check Collection <MoveRight className="w-4 h-4" />
-            </Button>
-          </div>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-3">
+  <Link href="/collection" passHref>
+    <Button size="lg" className="w-full sm:w-auto gap-4 cursor-pointer" variant="outline">
+      Whatsapp Us <PhoneCall className="w-4 h-4" />
+    </Button>
+  </Link>
+
+  <Link href="/collection" passHref>
+    <Button size="lg" className="w-full sm:w-auto gap-4 cursor-pointer">
+      Check Collection <MoveRight className="w-4 h-4" />
+    </Button>
+  </Link>
+</div>
+
         </div>
         <div className="w-full bg-muted/20 mt-8 lg:mt-16">
           <div className="container mx-auto">
