@@ -26,23 +26,56 @@ function Hero() {
     return () => clearTimeout(timeoutId);
   }, [titleNumber, titles]);
 
-  const testimonials = [
-    {
-      author: { name: "Sarah Johnson", handle: "@sarahj", avatar: "/placeholder-avatar.jpg" },
-      text: "This platform has transformed how we manage our business operations...",
-      href: "#",
-    },
-    {
-      author: { name: "Michael Chen", handle: "@mikec", avatar: "/placeholder-avatar.jpg" },
-      text: "The best business management solution we've used...",
-      href: "#",
-    },
-    {
-      author: { name: "Emily Rodriguez", handle: "@emilyr", avatar: "/placeholder-avatar.jpg" },
-      text: "Switching to this platform was the best decision we made this year...",
-      href: "#",
-    },
-  ];
+  interface Testimonial {
+    _id: string;
+    author: {
+      name: string;
+      handle: string;
+      avatar: string;
+    };
+    text: string;
+    href?: string;
+  }
+
+  const [apiTestimonials, setApiTestimonials] = useState<Testimonial[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        const response = await fetch('/api/testimonials');
+        if (!response.ok) {
+          throw new Error('Failed to fetch testimonials');
+        }
+        const data = await response.json();
+        if (data.status === 'success') {
+          setApiTestimonials(data.data);
+        }
+      } catch (err) {
+        const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred';
+        console.error('Error fetching testimonials:', errorMessage);
+        setError(errorMessage);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTestimonials();
+  }, []);
+
+  // Format testimonials for the TestimonialsSection component
+  const formattedTestimonials = useMemo(() => {
+    return apiTestimonials.map(testimonial => ({
+      author: {
+        name: testimonial.author?.name || 'Anonymous',
+        handle: testimonial.author?.handle || '',
+        avatar: testimonial.author?.avatar || '/placeholder-avatar.jpg'
+      },
+      text: testimonial.text,
+      href: testimonial.href || '#'
+    }));
+  }, [apiTestimonials]);
 
   const bgImages = [
     "/jewelery1.jpg",
@@ -113,15 +146,21 @@ function Hero() {
         </div>
       </div>
 
-      {/* Testimonials block below hero (unchanged) */}
+      {/* Testimonials block below hero */}
       <div className="w-full bg-muted/20 mt-8 lg:mt-16">
         <div className="container mx-auto">
-          <TestimonialsSection
-            title="Trusted by Whole Jammu"
-            description="Join thousands of peoples that have trusted us"
-            testimonials={testimonials}
-            className="py-16 md:py-24"
-          />
+          {loading ? (
+            <div className="py-12 text-center">Loading testimonials...</div>
+          ) : error ? (
+            <div className="py-12 text-center text-red-500">Error loading testimonials: {error}</div>
+          ) : (
+            <TestimonialsSection
+              title="What our customers say"
+              description="Don't just take our word for it. Here's what our customers have to say about their experience with our platform."
+              testimonials={formattedTestimonials}
+              className="py-16 md:py-24"
+            />
+          )}
         </div>
       </div>
     </div>
