@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils"
 import { TestimonialCard, TestimonialAuthor } from "@/components/ui/testimonial-card"
 
-interface TestimonialsSectionProps {
+interface TestimonialsSectionProps{
   title: string
   description: string
   testimonials: Array<{
@@ -17,7 +17,7 @@ export function TestimonialsSection({
   description,
   testimonials,
   className 
-}: TestimonialsSectionProps) {
+}: TestimonialsSectionProps){
   return (
     <section className={cn(
       "bg-background text-foreground",

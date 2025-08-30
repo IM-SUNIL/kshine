@@ -29,7 +29,7 @@ const Navbar = () => {
             animate={{ scale: 1 }}
             whileHover={{ rotate: 10 }}
             transition={{ duration: 0.3 }}
-          ><Image src="/kshinelogo.png" alt="Logo" width={100} height={50} />
+          > <Link href={"/"}><Image src="/kshinelogo.png" alt="Logo" width={100} height={50} /></Link>
           </motion.div>
         </div>
         

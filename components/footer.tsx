@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
+import Link from "next/link"
 // import { Textarea } from "@/components/ui/textarea"
 import {
   Tooltip,
@@ -27,7 +28,7 @@ function Footer() {
   }, [isDarkMode])
 
   return (
-    <footer className="relative border-t bg-background text-foreground transition-colors duration-300">
+    <footer className="relative border-t  bg-background text-foreground transition-colors duration-300">
       <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="relative">
@@ -38,7 +39,7 @@ function Footer() {
             <form className="relative">
               <Input
                 type="email"
-                placeholder="Enter your email"
+                placeholder="Enter your Whatsapp Number"
                 className="pr-12 backdrop-blur-sm"
               />
               <Button
@@ -55,21 +56,21 @@ function Footer() {
           <div>
             <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
             <nav className="space-y-2 text-sm">
-              <a href="#" className="block transition-colors hover:text-primary">
-                Home
-              </a>
-              <a href="/collection" className="block transition-colors hover:text-primary">
+              <Link href={"/"} className="block transition-colors hover:text-primary">
+              Home
+              </Link>
+              <Link href="/collection" className="block transition-colors hover:text-primary">
                 Collections
-              </a>
-              <a href="/blog" className="block transition-colors hover:text-primary">
+              </Link>
+              <Link href="/blog" className="block transition-colors hover:text-primary">
                 Blogs
-              </a>
-              <a href="/testimonials" className="block transition-colors hover:text-primary">
+              </Link>
+              <Link href="/testimonials" className="block transition-colors hover:text-primary">
                 Testimonials
-              </a>
-              <a href="/about" className="block transition-colors hover:text-primary">
+              </Link>
+              <Link href="/about" className="block transition-colors hover:text-primary">
                 About us
-              </a>
+              </Link>
             </nav>
           </div>
           <div>
