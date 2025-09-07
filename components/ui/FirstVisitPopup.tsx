@@ -74,7 +74,7 @@ export default function FirstVisitPopup() {
             <h2 className="text-2xl font-bold text-gray-800 mb-2">Get Exclusive Gold Rate Updates!</h2>
             <h3 className="text-xl text-amber-600 font-semibold mb-3">Flat 10% Off on Your First Purchase</h3>
             <p className="text-gray-600 text-sm">
-              Enter your mobile number to receive today's gold & silver rates + special offers.
+              Enter your mobile number to receive today&apos;s gold & silver rates + special offers.
             </p>
           </div>
           
