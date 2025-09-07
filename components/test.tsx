@@ -36,7 +36,7 @@ export default function Navbar1() {
           {/* Center Logo - Mobile */}
           <Link href="/" className="flex items-center gap-2">
             <img src="/kshinelogo.png" alt="Logo" className="h-8 w-auto" />
-            <span className="font-bold text-lg">K-Shine Jewellers</span>
+            <span className="font-bold text-xl">K-Shine Jewellers</span>
           </Link>
           
           {/* Our Stores Button - Mobile */}
@@ -55,14 +55,14 @@ export default function Navbar1() {
           {/* Left: Logo */}
           <Link href="/" className="flex items-center gap-2">
             <img src="/kshinelogo.png" alt="Logo" className="h-10 w-auto" />
-            <span className="font-bold text-lg">K-Shine Jewellers</span>
+            <span className="font-bold text-xl">K-Shine Jewellers</span>
           </Link>
 
         {/* Center: Menu (Desktop) */}
-        <nav className="hidden md:flex items-center gap-10 text-sm font-sans font-medium">
+        <nav className="hidden md:flex items-center gap-10 text-sm font-['Montserrat'] font-light">
           {menuItems.map((item, idx) => (
             <div key={idx} className="group relative">
-              <Link href={item.href} className="hover:text-[#800020] transition flex items-center gap-1 py-2 px-2 font-medium">
+              <Link href={item.href} className="hover:text-[#800020] transition flex items-center gap-1 py-2 px-2 font-['Montserrat']">
                 {item.name}
                 <ChevronDown className="w-4 h-4 mt-0.5" />
               </Link>

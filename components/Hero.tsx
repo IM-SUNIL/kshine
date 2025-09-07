@@ -6,12 +6,13 @@ import { MoveRight, PhoneCall } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TestimonialsSection } from "./Testimonials";
 import Link from "next/link";
-import BackgroundSlider from "./ui/BackgroundSlider";
+import BackgroundSlider from "./BackgroundSlider";
 import dynamic from "next/dynamic";
+import GoldPriceDisplay from "./numbers";
 
 // Dynamically import the popup to avoid SSR issues with localStorage
 const FirstVisitPopup = dynamic(
-  () => import("@/components/ui/FirstVisitPopup"),
+  () => import("@/components/FirstVisitPopup"),
   { ssr: false }
 );
 
@@ -169,6 +170,14 @@ function Hero() {
               className="py-16 md:py-24"
             />
           )}
+        </div>
+      </div>
+
+      {/* Gold Price Display Section */}
+      <div className="w-full py-8 bg-gradient-to-b from-gray-900 to-gray-800">
+        <div className="container mx-auto px-4
+                    flex flex-col items-center justify-center">
+          <GoldPriceDisplay />
         </div>
       </div>
     </div>
