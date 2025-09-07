@@ -10,13 +10,10 @@ export default function Navbar1() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
-    { name: "All Jewellery", href: "#" },
-    { name: "Collection", href: "#" },
     { name: "Gold", href: "#" },
-    { name: "Diamond", href: "#" },
-    { name: "Polki", href: "#" },
+    { name: "Kashmiri Gold", href: "#" },
     { name: "Silver", href: "#" },
-    { name: "Coins", href: "#" },
+    { name: "Diamond", href: "#" },
     { name: "About Us", href: "#" },
   ];
 

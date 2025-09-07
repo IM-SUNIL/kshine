@@ -139,7 +139,7 @@ function Hero() {
 
             {/* Buttons */}
             <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-3">
-              <Link href="/collection" passHref>
+              <Link href="https://wa.me/9622212879?text=Hello%20I%20need%20message" passHref>
                 <Button size="lg" className="w-full sm:w-auto gap-4 cursor-pointer" variant="outline">
                   Whatsapp Us <PhoneCall className="w-4 h-4" />
                 </Button>
