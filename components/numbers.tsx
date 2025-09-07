@@ -44,22 +44,22 @@ function AnimatedNumber({ value }: { value: number }) {
 
 export default function GoldPriceDisplay() {
   return (
-    <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-6 shadow-xl max-w-md mx-auto">
+    <div className="bg-white rounded-xl p-6 shadow-lg max-w-md mx-auto border border-gray-100">
       {/* Header */}
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-medium text-white">Gold Price</h2>
-        <div className="flex items-center space-x-2 bg-amber-500/20 px-3 py-1 rounded-full">
-          <span className="text-amber-400 text-sm font-medium">24K</span>
+        <h2 className="text-2xl font-semibold text-gray-800">Gold Price</h2>
+        <div className="flex items-center space-x-2 bg-amber-50 px-3 py-1 rounded-full border border-amber-100">
+          <span className="text-amber-600 text-sm font-medium">24K</span>
         </div>
       </div>
       
       {/* Price Display */}
       <div className="mb-4">
-        <div className="text-4xl font-bold text-white">
+        <div className="text-4xl font-bold text-gray-900">
           <AnimatedNumber value={GOLD_PRICE_PER_GRAM} />
         </div>
-        <div className="flex items-center mt-1">
-          <span className="text-green-400 text-sm font-medium flex items-center">
+        <div className="flex items-center mt-2">
+          <span className="text-green-600 text-sm font-medium flex items-center bg-green-50 px-2 py-1 rounded">
             <ArrowUp className="w-4 h-4 mr-1" />
             {PRICE_CHANGE_PERCENTAGE}% Today
           </span>
@@ -67,10 +67,11 @@ export default function GoldPriceDisplay() {
       </div>
 
       {/* Last updated */}
-      <div className="text-gray-400 text-xs">
+      <div className="text-gray-500 text-xs mt-4 pt-3 border-t border-gray-100">
         Last updated: {new Date().toLocaleTimeString('en-IN', {
           hour: '2-digit',
-          minute: '2-digit'
+          minute: '2-digit',
+          hour12: true
         })}
       </div>
     </div>

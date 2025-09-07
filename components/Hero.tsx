@@ -174,12 +174,15 @@ function Hero() {
       </div>
 
       {/* Gold Price Display Section */}
-      <div className="w-full py-8 bg-gradient-to-b from-gray-900 to-gray-800">
+      <div className="w-full mb-8">
         <div className="container mx-auto px-4
                     flex flex-col items-center justify-center">
           <GoldPriceDisplay />
         </div>
       </div>
+      {/* <!-- Elfsight Google Reviews | Untitled Google Reviews --> */}
+      <script src="https://elfsightcdn.com/platform.js" async></script>
+      <div className="elfsight-app-a48cc448-fce9-4103-ab68-645fdb05674e" data-elfsight-app-lazy></div>
     </div>
   );
 }

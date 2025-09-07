@@ -21,7 +21,7 @@ export default function BackgroundSlider({ images, interval = 2000, className = 
   }, [images, interval]);
 
   return (
-    <div className={`fixed inset-0 -z-20 pointer-events-none overflow-hidden ${className}`} aria-hidden>
+    <div className={`inset-0 -z-20 pointer-events-none overflow-hidden ${className}`} aria-hidden>
       {images.map((src, i) => (
         <div
           key={i}
