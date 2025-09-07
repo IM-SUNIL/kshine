@@ -7,6 +7,13 @@ import { Button } from "@/components/ui/button";
 import { TestimonialsSection } from "./Testimonials";
 import Link from "next/link";
 import BackgroundSlider from "./ui/BackgroundSlider";
+import dynamic from "next/dynamic";
+
+// Dynamically import the popup to avoid SSR issues with localStorage
+const FirstVisitPopup = dynamic(
+  () => import("@/components/ui/FirstVisitPopup"),
+  { ssr: false }
+);
 
 function Hero() {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -86,7 +93,8 @@ function Hero() {
   ];
 
   return (
-    <div className="w-full">
+    <div className="relative overflow-hidden">
+      <FirstVisitPopup />
       <div className="relative min-h-screen flex items-center">
         <BackgroundSlider images={bgImages} interval={2000} className="" />
         <div className="relative z-10 container mx-auto px-3 py-20 lg:py-10">

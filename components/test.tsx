@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, Search, User, ShoppingBag } from "lucide-react";
+import { Menu } from "lucide-react";
 
 import { ChevronDown } from "lucide-react";
 
@@ -22,12 +22,41 @@ export default function Navbar1() {
 
   return (
     <header className="w-full bg-white border-t-2 border-[#800020] shadow-sm">
-      <div className="container mx-auto flex items-center justify-between px-4 py-4">
-        {/* Left: Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <img src="/kshinelogo.png" alt="Logo" className="h-10 w-auto" />
-          <span className="font-bold text-lg">K-Shine Jewellers</span>
-        </Link>
+      <div className="container mx-auto px-1 py-5  sm:px-4">
+        {/* Mobile View */}
+        <div className="md:hidden flex items-center justify-between w-full">
+          {/* Mobile Menu Button */}
+          <button
+            className="p-2"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <Menu className="w-6 h-6" />
+          </button>
+          
+          {/* Center Logo - Mobile */}
+          <Link href="/" className="flex items-center gap-2">
+            <img src="/kshinelogo.png" alt="Logo" className="h-8 w-auto" />
+            <span className="font-bold text-lg">K-Shine Jewellers</span>
+          </Link>
+          
+          {/* Our Stores Button - Mobile */}
+          <button 
+            className="px-3 py-1.5 text-sm bg-[#800020] text-white rounded-md hover:bg-[#6a001c] transition-colors duration-200 font-medium"
+            onClick={() => {
+              // Add your store locator or stores page navigation logic here
+            }}
+          >
+            Our Stores
+          </button>
+        </div>
+        
+        {/* Desktop View */}
+        <div className="hidden md:flex items-center justify-between">
+          {/* Left: Logo */}
+          <Link href="/" className="flex items-center gap-2">
+            <img src="/kshinelogo.png" alt="Logo" className="h-10 w-auto" />
+            <span className="font-bold text-lg">K-Shine Jewellers</span>
+          </Link>
 
         {/* Center: Menu (Desktop) */}
         <nav className="hidden md:flex items-center gap-10 text-sm font-sans font-medium">
@@ -47,17 +76,17 @@ export default function Navbar1() {
           ))}
         </nav>
 
-        {/* Right: Icons */}
-        <div className="flex items-center gap-4">
-          <Search className="w-5 h-5 cursor-pointer hover:text-[#800020]" />
-          <User className="w-5 h-5 cursor-pointer hover:text-[#800020]" />
-          <ShoppingBag className="w-5 h-5 cursor-pointer hover:text-[#800020]" />
-          <button
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <Menu className="w-6 h-6" />
-          </button>
+          {/* Right: Our Stores Button - Desktop */}
+          <div className="hidden md:flex items-center gap-4">
+            <button 
+              className="px-4 py-2 cursor-pointer bg-[#800020] text-white rounded-md hover:bg-[#6a001c] transition-colors duration-200 font-medium"
+              onClick={() => {
+                // Add your store locator or stores page navigation logic here
+              }}
+            >
+              Our Stores
+            </button>
+          </div>
         </div>
       </div>
 
