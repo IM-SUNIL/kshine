@@ -6,7 +6,6 @@ import { useEffect, useRef } from "react";
 const rates = [
   { label: "🪙 Gold Rate", value: "₹65,000 / 10g" },
   { label: "🥈 Silver Rate", value: "₹75,000 / kg" },
-  { label: "💎 Platinum Rate", value: "₹3,20,000 / 100g" },
 ];
 
 export default function RatesTicker() {
@@ -50,8 +49,8 @@ export default function RatesTicker() {
   }, [controls]);
 
   return (
-    <div ref={containerRef} className="w-full bg-black text-yellow-300 text-sm overflow-hidden">
-      <div className="relative">
+    <div ref={containerRef} className="w-full bg-black py-1 text-yellow-300 text-sm overflow-hidden">
+      <div className="">
         <motion.div
           animate={controls}
           className="flex gap-12 whitespace-nowrap py-2"

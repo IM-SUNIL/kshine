@@ -19,7 +19,7 @@ const FirstVisitPopup = dynamic(
 function Hero() {
   const [titleNumber, setTitleNumber] = useState(0);
   const titles = useMemo(
-    () => ["Necklaces", "Rings", "Diamonds", "Earrings", "Bracelets"],
+    () => ["Gold", "Silver", "Diamonds", "Kashmiri Gold"],
     []
   );
 
@@ -86,71 +86,80 @@ function Hero() {
   }, [apiTestimonials]);
 
   const bgImages = [
-    "/jewelery1.jpg",
-    "/jewelery2.jpg",
-    "/jewelery3.jpg",
-    "/jewelery4.jpg",
-    "/jewelery5.jpg",
+    "/bride.jpg",
+    "/j2.jpg",
+  ];
+  const potraitbgImages = [
+    "/bridepotrait.jpg",
+    "j2potrait2.jpg",
   ];
 
   return (
     <div className="relative overflow-hidden">
       <FirstVisitPopup />
-      <div className="relative min-h-screen flex items-center">
-        <BackgroundSlider images={bgImages} interval={2000} className="" />
-        <div className="relative z-10 container mx-auto px-3 py-20 lg:py-10">
-          <div className="flex gap-8 items-center justify-center flex-col">
-            <div>
-              <Link href="/blog">
-                <Button variant="secondary" size="sm" className="cursor-pointer gap-4">
-                  Read our more blogs <MoveRight className="w-4 h-4" />
-                </Button>
-              </Link>
-            </div>
+      <Link href="/collection" passHref>
+      <div className="relative h-[90vh] flex items-center">
+        {/* Desktop Background */}
+        <div className="hidden md:block w-full h-full">
+          <BackgroundSlider images={bgImages} interval={2000} className="" />
+        </div>
+        {/* Mobile Background */}
+        <div className="block md:hidden w-full h-full">
+          <BackgroundSlider images={potraitbgImages} interval={2000} className="" />
+        </div>
+      </div></Link>
+      <div className=" z-10 container mx-auto px-3 py-20 lg:py-10">
+        <div className="flex gap-8 items-center justify-center flex-col">
+          <div>
+            <Link href="/blog">
+              <Button variant="secondary" size="sm" className="cursor-pointer gap-4">
+                Read our more blogs <MoveRight className="w-4 h-4" />
+              </Button>
+            </Link>
+          </div>
 
-            <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-center font-regular">
-              <span className="text-spektr-cyan-50">K-Shine Jewellers</span>
-              <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
-                &nbsp;
-                {titles.map((title, index) => (
-                  <motion.span
-                    key={index}
-                    className="absolute font-semibold"
-                    initial={{ opacity: 0, y: "-100" }}
-                    transition={{ type: "spring", stiffness: 50 }}
-                    animate={
-                      titleNumber === index
-                        ? { y: 0, opacity: 1 }
-                        : { y: titleNumber > index ? -150 : 150, opacity: 0 }
-                    }
-                  >
-                    {title}
-                  </motion.span>
-                ))}
-              </span>
-            </h1>
+          <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-center font-regular">
+            <span className="text-spektr-cyan-50">K-Shine Jewellers</span>
+            <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
+              &nbsp;
+              {titles.map((title, index) => (
+                <motion.span
+                  key={index}
+                  className="absolute font-semibold"
+                  initial={{ opacity: 0, y: "-100" }}
+                  transition={{ type: "spring", stiffness: 50 }}
+                  animate={
+                    titleNumber === index
+                      ? { y: 0, opacity: 1 }
+                      : { y: titleNumber > index ? -150 : 150, opacity: 0 }
+                  }
+                >
+                  {title}
+                </motion.span>
+              ))}
+            </span>
+          </h1>
 
-            <p className="text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-2xl text-center">
-              Managing a small business today is already tough. Avoid further
-              complications by ditching outdated, tedious trade methods. Our
-              goal is to streamline SMB trade, making it easier and faster than
-              ever.
-            </p>
+          <p className="text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-2xl text-center">
+            Managing a small business today is already tough. Avoid further
+            complications by ditching outdated, tedious trade methods. Our
+            goal is to streamline SMB trade, making it easier and faster than
+            ever.
+          </p>
 
-            {/* Buttons */}
-            <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-3">
-              <Link href="https://wa.me/9622212879?text=Hello%20I%20need%20message" passHref>
-                <Button size="lg" className="w-full sm:w-auto gap-4 cursor-pointer" variant="outline">
-                  Whatsapp Us <PhoneCall className="w-4 h-4" />
-                </Button>
-              </Link>
+          {/* Buttons */}
+          <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-3">
+            <Link href="https://wa.me/9622212879?text=Hello%20I%20need%20message" passHref>
+              <Button size="lg" className="w-full sm:w-auto gap-4 cursor-pointer" variant="outline">
+                Whatsapp Us <PhoneCall className="w-4 h-4" />
+              </Button>
+            </Link>
 
-              <Link href="/collection" passHref>
-                <Button size="lg" className="w-full sm:w-auto gap-4 cursor-pointer">
-                  Check Collection <MoveRight className="w-4 h-4" />
-                </Button>
-              </Link>
-            </div>
+            <Link href="/collection" passHref>
+              <Button size="lg" className="w-full sm:w-auto gap-4 cursor-pointer">
+                Check Collection <MoveRight className="w-4 h-4" />
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

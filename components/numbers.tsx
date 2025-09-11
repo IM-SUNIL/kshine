@@ -1,78 +1,55 @@
-'use client';
+"use client";
 
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUp } from 'lucide-react';
-
-const GOLD_PRICE_PER_GRAM = 6492.50; // Example price in INR
-const PRICE_CHANGE_PERCENTAGE = 1.25; // 1.25% increase
-
-function formatNumber(num: number): string {
-  return new Intl.NumberFormat('en-IN', {
-    style: 'currency',
-    currency: 'INR',
-    maximumFractionDigits: 0,
-    minimumFractionDigits: 0
-  }).format(num);
-}
-
-function AnimatedNumber({ value }: { value: number }) {
-  const [displayValue, setDisplayValue] = useState(0);
-
-  useEffect(() => {
-    const duration = 1000; // Faster animation
-    const start = 0;
-    const end = value;
-    const startTime = performance.now();
-
-    const animate = (currentTime: number) => {
-      const elapsedTime = currentTime - startTime;
-      const progress = Math.min(elapsedTime / duration, 1);
-      const currentValue = Math.floor(progress * (end - start) + start);
-      setDisplayValue(currentValue);
-
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      }
-    };
-
-    requestAnimationFrame(animate);
-  }, [value]);
-
-  return <span>{formatNumber(displayValue)}</span>;
-}
 
 export default function GoldPriceDisplay() {
-  return (
-    <div className="bg-white rounded-xl p-6 shadow-lg max-w-md mx-auto border border-gray-100">
-      {/* Header */}
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-semibold text-gray-800">Gold Price</h2>
-        <div className="flex items-center space-x-2 bg-amber-50 px-3 py-1 rounded-full border border-amber-100">
-          <span className="text-amber-600 text-sm font-medium">24K</span>
-        </div>
-      </div>
-      
-      {/* Price Display */}
-      <div className="mb-4">
-        <div className="text-4xl font-bold text-gray-900">
-          <AnimatedNumber value={GOLD_PRICE_PER_GRAM} />
-        </div>
-        <div className="flex items-center mt-2">
-          <span className="text-green-600 text-sm font-medium flex items-center bg-green-50 px-2 py-1 rounded">
-            <ArrowUp className="w-4 h-4 mr-1" />
-            {PRICE_CHANGE_PERCENTAGE}% Today
-          </span>
-        </div>
-      </div>
+  const [price, setPrice] = useState<number>(100330);
+  const [isVisible, setIsVisible] = useState(false);
 
-      {/* Last updated */}
-      <div className="text-gray-500 text-xs mt-4 pt-3 border-t border-gray-100">
-        Last updated: {new Date().toLocaleTimeString('en-IN', {
-          hour: '2-digit',
-          minute: '2-digit',
-          hour12: true
-        })}
+  useEffect(() => {
+    // In a real app, fetch the actual gold price here
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const formatNumber = (num: number) => {
+    return new Intl.NumberFormat('en-IN').format(num);
+  };
+
+  return (
+    <div className="snap-center w-full py-2 md:py-3 flex items-center justify-center">
+      <div className="impact-text impact-text--center w-full max-w-4xl px-4">
+        <div className="impact-text__text heading break-all text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-gradient"
+            style={{
+              background: 'linear-gradient(180deg, rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.3) 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              color: 'transparent',
+              fontSize: 'clamp(3rem, 10vw, 6rem)',
+              lineHeight: 1,
+              fontWeight: 700,
+              marginBottom: '0.5rem',
+            }}
+          >
+            ₹{formatNumber(price)}
+          </motion.div>
+          
+          <div className="impact-text__content mt-6">
+            <h3 className="text-lg md:text-xl text-gray-600 font-medium">
+              Today's Gold Price per 10 Grams for 22K
+            </h3>
+          </div>
+        </div>
       </div>
     </div>
   );

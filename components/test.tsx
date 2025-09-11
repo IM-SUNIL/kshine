@@ -18,13 +18,13 @@ export default function Navbar1() {
   ];
 
   return (
-    <header className="w-full bg-white border-t-2 border-[#800020] shadow-sm">
-      <div className="container mx-auto px-1 py-5  sm:px-4">
+    <header className="sticky top-0 z-50 w-full bg-white shadow-sm items-center">
+      <div className="container w-full px-1 py-5">
         {/* Mobile View */}
-        <div className="md:hidden flex items-center justify-between w-full">
+        <div className="lg:hidden flex items-center justify-between w-full">
           {/* Mobile Menu Button */}
           <button
-            className="p-2"
+            className="p-2 justfy-left"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <Menu className="w-6 h-6" />
@@ -33,7 +33,7 @@ export default function Navbar1() {
           {/* Center Logo - Mobile */}
           <Link href="/" className="flex items-center gap-2">
             <img src="/kshinelogo.png" alt="Logo" className="h-8 w-auto" />
-            <span className="font-bold text-xl">K-Shine Jewellers</span>
+            <span className="font-bold font-['Dancing_Script'] text-2xl">K-Shine Jewellers</span>
           </Link>
           
           {/* Our Stores Button - Mobile */}
@@ -48,15 +48,15 @@ export default function Navbar1() {
         </div>
         
         {/* Desktop View */}
-        <div className="hidden md:flex items-center justify-between">
+        <div className="hidden lg:flex items-center justify-between">
           {/* Left: Logo */}
           <Link href="/" className="flex items-center gap-2">
             <img src="/kshinelogo.png" alt="Logo" className="h-10 w-auto" />
-            <span className="font-bold text-xl">K-Shine Jewellers</span>
+            <span className="font-bold font-['Dancing_Script'] text-3xl">K-Shine Jewellers</span>
           </Link>
 
         {/* Center: Menu (Desktop) */}
-        <nav className="hidden md:flex items-center gap-10 text-sm font-['Montserrat'] font-light">
+        <nav className="hidden lg:flex items-center gap-10 text-sm font-['Montserrat'] font-light">
           {menuItems.map((item, idx) => (
             <div key={idx} className="group relative">
               <Link href={item.href} className="hover:text-[#800020] transition flex items-center gap-1 py-2 px-2 font-['Montserrat']">
@@ -74,7 +74,7 @@ export default function Navbar1() {
         </nav>
 
           {/* Right: Our Stores Button - Desktop */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4">
             <button 
               className="px-4 py-2 cursor-pointer bg-[#800020] text-white rounded-md hover:bg-[#6a001c] transition-colors duration-200 font-medium"
               onClick={() => {
@@ -89,7 +89,7 @@ export default function Navbar1() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white border-t shadow-sm">
+        <div className="lg:hidden bg-white border-t shadow-sm">
           <nav className="flex flex-col p-4 gap-3 text-sm font-medium">
             {menuItems.map((item, idx) => (
               <Link
