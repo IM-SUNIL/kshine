@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function GoldPriceDisplay() {
-  const [price, setPrice] = useState<number>(100330);
+  const [price] = useState<number>(100330);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -46,7 +46,7 @@ export default function GoldPriceDisplay() {
           
           <div className="impact-text__content mt-6">
             <h3 className="text-lg md:text-xl text-gray-600 font-medium">
-              Today's Gold Price per 10 Grams for 22K
+              Today&apos;s Gold Price per 10 Grams for 22K
             </h3>
           </div>
         </div>
