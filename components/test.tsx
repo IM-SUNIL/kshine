@@ -33,7 +33,7 @@ export default function Navbar1() {
           {/* Center Logo - Mobile */}
           <Link href="/" className="flex items-center gap-2">
             <img src="/kshinelogo.png" alt="Logo" className="h-8 w-auto" />
-            <span className="font-bold font-['Dancing_Script'] text-2xl">K-Shine Jewellers</span>
+            <span className="font-bold font-[Dancing_Script] text-2xl">K-Shine Jewellers</span>
           </Link>
           
           {/* Our Stores Button - Mobile */}
@@ -52,7 +52,7 @@ export default function Navbar1() {
           {/* Left: Logo */}
           <Link href="/" className="flex items-center gap-2">
             <img src="/kshinelogo.png" alt="Logo" className="h-10 w-auto" />
-            <span className="font-bold font-['Dancing_Script'] text-3xl">K-Shine Jewellers</span>
+           <span className="font-bold font-[Dancing_Script] text-3xl">K-Shine Jewellers</span>
           </Link>
 
         {/* Center: Menu (Desktop) */}
